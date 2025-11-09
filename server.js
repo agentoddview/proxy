@@ -78,6 +78,9 @@ function makeProxy(targetBase) {
     onProxyReq(proxyReq, req, res) {
       // Strip internal headers, keep things tidy
       proxyReq.removeHeader("x-proxy-key");
+      if (req.params.slug === "wetrust") {
+  proxyReq.setHeader("Authorization", `Bearer ${process.env.MYAPI_KEY}`);
+}
       // Optional: add upstream API key here from env to keep Roblox clean
       // if (req.params.slug === "myapi") proxyReq.setHeader("Authorization", `Bearer ${process.env.MYAPI_KEY}`);
     }
