@@ -7,8 +7,8 @@ import { RateLimiterMemory } from "rate-limiter-flexible";
 
 const {
   PORT = 8080,
-  PROXY_KEY,                 // required: shared key your Roblox code sends in header
-  ALLOW_ORIGINS = "",        // comma list of allowed origins for CORS (e.g. your site)
+  PROXY_KEY,                // required: shared key your Roblox code sends in header
+  ALLOW_ORIGINS = "netransit.github.io",        // comma list of allowed origins for CORS (e.g. your site)
   TIMEOUT_MS = 15000
 } = process.env;
 
@@ -56,7 +56,7 @@ app.use(async (req, res, next) => {
 const targets = {
   // example slugs you can use from Roblox:
   // GET https://your-proxy.example.com/t/myapi/endpoint
-  "myapi": "https://api.example.com",
+  "myapi": "https://net-api.mbtaroblox.com",
   // add more:
   // "openai": "https://api.openai.com",
   // "sheet":  "https://script.google.com",
